@@ -1,0 +1,142 @@
+// Esta seria a classe main, que ficaria responsavel por chamar os métodos.
+
+import java.util.Scanner;
+
+public class Pizzaria {
+
+    public static void main(String[] args) {
+
+        // cadastrar o nome do Cliente
+        Usuario.CadastrarCliente();
+
+        // Mostrar os sabores das Pizzas disponíveis
+        Pizza.mostrarSabores();
+
+        // Mostrar os tamanhos das Pizzas disponíveis
+        Pizza.mostrarTamanhos();
+
+        // Mostrar as Bebidas disponiveis
+        Bebida.mostrarBebidas();
+
+        // Mostrar o Pedido do Cliente
+        PedidoCliente.mostrarPedido();
+
+        //fim do pedido e pagamento
+        Cliente.direcionarCliente();
+    }
+}
+
+
+// Esta classe é responsavel por Cadastrar as informações dos Clientes
+import java.util.Scanner;
+
+    public static void CadastrarCliente() {
+
+        //cadastro dos clientes
+        String nomes;
+        String enderecos;
+
+        Scanner nome = new Scanner(System.in);
+
+        System.out.println("Digite o seu nome:");
+        nomes = nome.nextLine(); //pegar tudo o que for escrito na resposta e salvar em 'nomes'
+
+        Scanner endereco = new Scanner(System.in);
+
+        System.out.println(nomes+" Digite o seu endereço de entrega:");
+        enderecos = endereco.nextLine();
+        System.out.println("");
+    }
+}
+
+
+// Esta Classe Mostra os sabores de pizza e os tamanhos disponiveis
+public class Pizza {
+
+    // Atributo para armazenar os sabores disponíveis
+    private static String[] sabores = {
+            "Mussarela", "Escarola", "Marguerita", "Atum", "Romana",
+            "Quatro queijos", "Peperoni", "Calabresa", "Napolitana", "Brócolis",
+            "Siciliana", "Lombinho", "Estrogonofe de Carne", "Estrogonofe de Frango",
+            "Portuguesa", "Palmito", "Bacon", "Mista", "Califórnia", "Frango",
+            "Frango com Catupiry", "Espanhola", "Parmegiana", "Chocolate",
+            "Prestígio", "Romeu e Julieta", "Sensação", "Sorvete", "Paçoca",
+            "Nutella com Morango"
+    };
+
+    // Atributo para armazenar os tamanhos disponíveis
+    private static String[] tamanhos = {"1 metro", "Meio Metro", "Grande", "Média", "Pequena"};
+
+    // Método para exibir os sabores disponíveis
+    public static void mostrarSabores() {
+        System.out.println("Nós temos os seguintes sabores das Pizzas disponíveis:");
+
+        for (String sabor : sabores) {
+            System.out.println(sabor);
+        }
+    }
+    // Método para exibir os tamanhos disponíveis
+    public static void mostrarTamanhos() {
+        System.out.println("\nTamanhos disponíveis:");
+
+        for (String tamanho : tamanhos) {
+            System.out.println(tamanho);
+        }
+    }
+}
+
+
+// Esta Classe Mostra as bebidas disponiveis
+public class Bebida{
+
+    // Atributo para guaradar os sabores de bebida
+    private static String[] Bebidas = {
+           "Refrigerante", "Cerveja", "Vinho", "Água com gás", "Chá gelado", "Suco de frutas",
+            "Limonada","chá gelado", "coquetel", "Limonada de Morango"};
+
+    // Método para exibir os sabores disponíveis
+    public static void mostrarBebidas() {
+        System.out.println("\nNós temos os seguintes sabores de Bebidas disponíveis:");
+
+        for (String Bebidas : Bebidas) {
+            System.out.println(Bebidas);
+        }
+    }
+}
+
+
+// Esta Classe Cadastra o Pedido do Cliente
+import java.util.Scanner;
+public class PedidoCliente {
+
+    public static void mostrarPedido() {
+        Scanner pedidos = new Scanner(System.in);
+
+        // Armazenar o pedido em uma variavel
+
+        String pedido;
+
+        System.out.println("Digite o seu pedido aqui:");
+        pedido = pedidos.nextLine();
+
+        System.out.println("\nSeu Pedido "+ pedido +" foi cadastrado com Sucesso\n");
+    }
+}
+
+
+// Esta Classe finaliza o pedido do Cliente
+import java.util.Scanner;
+public class Cliente extends Usuario{
+
+    public static void direcionarCliente() {
+
+        Scanner direcionamento = new Scanner(System.in);
+
+        String direcionar;
+
+        System.out.println("Seu pedido ficará pronto em uma média de 50 mins, qual seria sua forma de pagamento?");
+        direcionar = direcionamento.nextLine();
+
+        System.out.println(" A Pizzaria OAK agradece a Preferencia.");
+    }
+}
